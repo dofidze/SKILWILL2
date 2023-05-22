@@ -1,85 +1,50 @@
 დავალება პირველი
+##
+function replaceValue(string, valueToReplace, valueToReplaceWith) {
+  let newString = "";
 
-function findUserWithMinimumAge(users) {
-  const userWithMinimumAge = users.reduce((prev, current) => {
-    return prev.age < current.age ? prev : current;
-  });
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === valueToReplace) {
+      newString += valueToReplaceWith;
+    } else {
+      newString += string[i];
+    }
+  }
 
-  return userWithMinimumAge.name;
+  return newString;
 }
+console.log(replaceValue(`kodala`, `d`, `k`));
 
-let users = [
-  { name: "Temo", age: 25 },
-  { name: "Lasha", age: 29 },
-  { name: "Ana", age: 28 },
-];
-const result = findUserWithMinimumAge(users);
-console.log(result);
-
-
-
+ 
 დავალება მეორე
-
-
-let users = [
-  { name: "Temo", age: 25 },
-  { name: "Lasha", age: 29 },
-  { name: "Ana", age: 28 },
-];
-const result = findUserWithMinimumAge(users);
-console.log(result);
-
-let user = {
-  name: "tommy jerry",
-  age: 30,
-  email: "tommyjerry@gmail.com",
-  address: "Georgia tbilisi St.221",
+##
+const capitalWords = (tyaosaniUpper) => {
+  return tyaosaniUpper.map((word) =>
+    word
+      .split(`_`)
+      .map((w) => w.toUpperCase())
+      .join(` `)
+  );
 };
 
-function getSignificantValues(user) {
-  return {
-    name: user.name,
-    age: user.age,
-    email: user.email,
-    address: user.address,
-  };
-}
-
-let significantValues = getSignificantValues(user);
-
-console.log(significantValues);
-
+console.log(
+  capitalWords([
+    `mastansa_kaba_emosa`,
+    `garetma_vepxvis_tyavisa`,
+    `xelta_nachedi_matraxi`,
+    `hqonda_usxosa_mklavzeda`,
+  ])
+);
 
 დავალება მესამე
+##
+const sortUsersByAge = (users) => users.sort((a, b) => a.age - b.age);
 
-let aTries = 1;
-let bTries = 1;
-
-while (true) {
-  let aRoll = Math.floor(Math.random() * 6) + 1;
-  aTries++;
-  if (aRoll === 3) {
-    console.log("Customer a wins in " + aTries + " tries!");
-    break;
-  }
-
-  let bRoll = Math.floor(Math.random() * 6) + 1;
-  if (bRoll === 3) {
-    console.log("Customer b wins in " + bTries + " tries!");
-    break;
-  }
-}
-
-function maxAge(users) {
-  return users.reduce((max, person) => {
-    return person.age > max ? person.age : max;
-  }, 0);
-}
-
-let users = [
-  { name: "Temo", age: 25 },
-  { name: "Lasha", age: 29 },
-  { name: "Ana", age: 28 },
+const users = [
+  { name: "Lasha", age: 30 },
+  { name: "Saba", age: 20 },
+  { name: "Nino", age: 25 },
 ];
-maxAge(users);
-console.log(maxAge(users));
+
+const sortedUsers = sortUsersByAge(users);
+console.log(sortedUsers);
