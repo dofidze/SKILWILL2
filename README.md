@@ -1,50 +1,25 @@
-დავალება პირველი
-##
-function replaceValue(string, valueToReplace, valueToReplaceWith) {
-  let newString = "";
+დავალება 
+Js
 
-  for (let i = 0; i < string.length; i++) {
-    if (string[i] === valueToReplace) {
-      newString += valueToReplaceWith;
-    } else {
-      newString += string[i];
-    }
+const validator = require("validator");
+
+console.log(validator.isEmail(`test@test.com`)); //true
+console.log(validator.isEmail(`abcDE123`)); //false
+
+package.json
+
+{
+  "name": "my-first-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "misho",
+  "license": "ISC",
+  "dependencies": {
+    "is-number": "^7.0.0",
+    "validator": "^13.9.0"
   }
-
-  return newString;
 }
-console.log(replaceValue(`kodala`, `d`, `k`));
-
- 
-დავალება მეორე
-##
-const capitalWords = (tyaosaniUpper) => {
-  return tyaosaniUpper.map((word) =>
-    word
-      .split(`_`)
-      .map((w) => w.toUpperCase())
-      .join(` `)
-  );
-};
-
-console.log(
-  capitalWords([
-    `mastansa_kaba_emosa`,
-    `garetma_vepxvis_tyavisa`,
-    `xelta_nachedi_matraxi`,
-    `hqonda_usxosa_mklavzeda`,
-  ])
-);
-
-დავალება მესამე
-##
-const sortUsersByAge = (users) => users.sort((a, b) => a.age - b.age);
-
-const users = [
-  { name: "Lasha", age: 30 },
-  { name: "Saba", age: 20 },
-  { name: "Nino", age: 25 },
-];
-
-const sortedUsers = sortUsersByAge(users);
-console.log(sortedUsers);
